@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Single artist profile. Only one row ever exists (id = "default").
+model Profile {
+  id                String   @id @default("default")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Identity
+  name              String   @default("")
+
+  // Practice
+  artForms          String   @default("[]")  // JSON: string[] — primary art forms
+  careerStage       String   @default("")    // emerging | mid-career | established
+  practice          String   @default("")    // description of practice & current work
+
+  // Eligibility context
+  nationalities     String   @default("[]")  // JSON: string[] — all citizenships held
+  countryOfResidence String  @default("")
+  hasFiscalSponsor  Boolean  @default(false) // some grants require a fiscal sponsor
+
+  // Demographics (relevant to targeted grant eligibility)
+  age               String   @default("")    // e.g. "28"
+  gender            String   @default("")
+  ethnicity         String   @default("")
+  disability        String   @default("")    // yes | no | prefer not to say
+
+  // Online presence
+  website           String   @default("")
+}
+
+// Each grant / opportunity discovered by search or added manually.
+model Grant {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  name        String
+  funder      String
+  amount      String   @default("")  // display string, e.g. "£5,000 – £15,000"
+  deadline    String   @default("")  // display string, e.g. "5 May 2026" or "Rolling"
+  description String   @default("")
+  eligibility String   @default("")  // who is eligible — nationality, career stage, art form etc.
+  focusAreas  String   @default("[]") // JSON: string[] — art forms / themes the grant covers
+  url         String   @default("")
+
+  // Workflow tracking
+  status      String   @default("match")  // match | saved | applied | awarded | declined
+  matchScore  Int      @default(0)         // 0–100
+  notes       String   @default("")
+  source      String   @default("search") // search | manual
+}

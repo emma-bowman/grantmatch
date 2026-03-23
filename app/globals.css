@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --color-background: #E8E4DC;
+  --color-card: #EFEBE4;
+  --color-border: #D8D3C8;
+  --color-accent: #4A5C3A;
+  --color-text-primary: #2C2C28;
+  --color-text-muted: #8A8880;
+  --color-text-label: #6B6B65;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pill toggle group */
+.pill-group {
+  display: inline-flex;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.pill-group button {
+  padding: 6px 18px;
+  font-size: 14px;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--color-accent);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pill-group button.active {
+  background: var(--color-accent);
+  color: #F0EDE6;
+}
+
+/* Filter chips */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid #C8C3B8;
+  background: #F7F4EF;
+  color: var(--color-accent);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.filter-chip.selected {
+  background: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+}
+
+/* CTA outline button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-family: "Inter", system-ui, sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: #F0EDE6;
+}
+
+/* Card */
+.grant-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.15s;
+}
+
+.grant-card:hover {
+  border-color: #b8b3a8;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}

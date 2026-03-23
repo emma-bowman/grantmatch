@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Production build
+build/
+
+# Database (SQLite)
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Environment variables — never commit real keys
+.env.local
+.env.*.local
+
+# Prisma
+prisma/migrations/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
