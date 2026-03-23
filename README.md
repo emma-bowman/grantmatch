@@ -10,9 +10,11 @@ Built as a focused portfolio project during a transition into freelance developm
 
 ---
 
-## Screenshot
+## Preview
 
-> _Screenshot coming soon — run locally to see the app in action._
+![GrantMatch preview](dashboard1.png)
+![GrantMatch preview](dashboard2.png)
+![GrantMatch preview](dashboard3.png)
 
 ---
 
